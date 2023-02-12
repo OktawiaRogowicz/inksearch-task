@@ -81,50 +81,45 @@ export default function App() {
           click here to shuffle
         </button>
       </div>
-      <div className="cards-container">
-        <button
-          onClick={showPrevious}
-          className="arrow arrow-left"
-        >{`<`}</button>
-        <button onClick={showNext} className="arrow arrow-right">
-          {`>`}
-        </button>
-        {cards && cards.length > 0 && (
-          <div className="cards">
-            <button onClick={showPrevious} className="card card-margin">
+      <button onClick={showPrevious} className="arrow arrow-left">{`<`}</button>
+      <button onClick={showNext} className="arrow arrow-right">
+        {`>`}
+      </button>
+      {cards && cards.length > 0 && (
+        <div className="cards">
+          <button onClick={showPrevious} className="card card-margin">
+            <img
+              key={`pokemon-card-previous`}
+              src={getImgSrc(cards[getPreviousId()].image)}
+            />
+          </button>
+          <button className="card">
+            <div className="card-active">
               <img
-                key={`pokemon-card-previous`}
-                src={getImgSrc(cards[getPreviousId()].image)}
+                key={`pokemon-card-main`}
+                src={getImgSrc(cards[mainCardId].image)}
               />
-            </button>
-            <button className="card">
-              <div className="card-active">
-                <img
-                  key={`pokemon-card-main`}
-                  src={getImgSrc(cards[mainCardId].image)}
-                />
-              </div>
-              {cardDetails && (
-                <div className="card-details">
-                  <div className="card-details-heading">
-                    <p className="card-name">
-                      {cardDetails.name}
-                      {cardDetails.hp && `, ${cardDetails.hp}HP`}
-                    </p>
-                  </div>
-                  <p className="card-rarity">{cardDetails.rarity}</p>
+            </div>
+            {cardDetails && (
+              <div className="card-details">
+                <div className="card-details-heading">
+                  <p className="card-name">
+                    {cardDetails.name}
+                    {cardDetails.hp && `, ${cardDetails.hp}HP`}
+                  </p>
                 </div>
-              )}
-            </button>
-            <button onClick={showNext} className="card card-margin">
-              <img
-                key={`pokemon-card-next}`}
-                src={getImgSrc(cards[getNextId()].image)}
-              />
-            </button>
-          </div>
-        )}
-      </div>
+                <p className="card-rarity">{cardDetails.rarity}</p>
+              </div>
+            )}
+          </button>
+          <button onClick={showNext} className="card card-margin">
+            <img
+              key={`pokemon-card-next}`}
+              src={getImgSrc(cards[getNextId()].image)}
+            />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
