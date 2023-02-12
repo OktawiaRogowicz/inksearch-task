@@ -148,6 +148,13 @@ body,
   background-color: var(--orange);
   border: none;
   color: var(--white);
+  transition: 0.2s;
+}
+
+.arrow:hover {
+  cursor: pointer;
+  background-color: var(--white);
+  color: var(--orange);
 }
 
 .arrow-left {
