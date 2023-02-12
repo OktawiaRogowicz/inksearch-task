@@ -73,6 +73,11 @@ export default function App() {
     showCardDetails();
   }, [cards, mainCardId]);
 
+  function addDefaultSrc(ev) {
+    ev.target.src =
+      "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/41d3ac77-2823-4e18-8910-a48de63acf87/d8xl0ja-ca02368b-643f-42f4-9721-f3895e14690d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzQxZDNhYzc3LTI4MjMtNGUxOC04OTEwLWE0OGRlNjNhY2Y4N1wvZDh4bDBqYS1jYTAyMzY4Yi02NDNmLTQyZjQtOTcyMS1mMzg5NWUxNDY5MGQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.dUhAjPqt1Rkudg3gHjqPNOQAuaA2wmXZ7T-Lq6L28O8";
+  }
+
   return (
     <div className="App">
       <div className="heading">
@@ -89,6 +94,8 @@ export default function App() {
         <div className="cards">
           <button onClick={showPrevious} className="card card-margin">
             <img
+              onError={addDefaultSrc}
+              alt={`pokemon-card-previous`}
               key={`pokemon-card-previous`}
               src={getImgSrc(cards[getPreviousId()].image)}
             />
@@ -96,6 +103,8 @@ export default function App() {
           <button className="card">
             <div className="card-active">
               <img
+                onError={addDefaultSrc}
+                alt={`pokemon-card-main`}
                 key={`pokemon-card-main`}
                 src={getImgSrc(cards[mainCardId].image)}
               />
@@ -114,6 +123,8 @@ export default function App() {
           </button>
           <button onClick={showNext} className="card card-margin">
             <img
+              onError={addDefaultSrc}
+              alt={`pokemon-card-next`}
               key={`pokemon-card-next}`}
               src={getImgSrc(cards[getNextId()].image)}
             />
