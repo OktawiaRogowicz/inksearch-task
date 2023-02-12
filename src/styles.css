@@ -1,0 +1,201 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --black: #181010;
+  --purple: #84739c;
+  --orange: #f7b58c;
+  --white: #ffefff;
+}
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+  background: var(--black);
+  min-height: 100%;
+  height: fit-content;
+  padding: 20px 70px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 50px;
+}
+
+.heading {
+  display: grid;
+  gap: 4px;
+}
+
+.title {
+  font-family: "Unica One", cursive;
+  font-size: 24px;
+  color: var(--orange);
+}
+
+.subtitle {
+  font-family: "Press Start 2P", cursive;
+  font-size: 8px;
+  color: var(--purple);
+  background-color: transparent;
+  border: none;
+  transition: 0.2s;
+}
+
+.subtitle:hover {
+  cursor: pointer;
+  color: var(--white);
+}
+
+.cards {
+  max-width: 100%;
+  width: 100%;
+  padding: 10;
+  position: relative;
+  display: grid;
+  gap: 30px;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  display: grid;
+  gap: 30px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+}
+
+.card-margin {
+  display: none;
+}
+
+.card-active {
+  animation-name: floating;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  25% {
+    transform: translate(0, -4px);
+  }
+  50% {
+    transform: translate(0, 0px);
+  }
+  75% {
+    transform: translate(0, -2px);
+  }
+  100% {
+    transform: translate(0, 0px);
+  }
+}
+
+.card img {
+  width: 100%;
+  object-fit: contain;
+  max-height: 100%;
+}
+
+.card-details {
+  color: white;
+  display: grid;
+  gap: 4px;
+}
+
+.card-details-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-name {
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;
+  color: var(--purple);
+}
+
+.card-rarity {
+  font-family: "Unica One", cursive;
+  font-size: 18px;
+  color: var(--orange);
+}
+
+.arrow {
+  z-index: 100;
+  position: absolute;
+  top: 50%;
+  height: 48px;
+  width: 48px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  background-color: var(--orange);
+  border: none;
+  color: var(--white);
+}
+
+.arrow-left {
+  left: 15px;
+}
+
+.arrow-right {
+  right: 15px;
+}
+
+@media only screen and (min-width: 1000px) {
+  .App {
+    padding: 50px 200px;
+  }
+
+  .heading {
+    gap: 8px;
+  }
+
+  .title {
+    font-size: 48px;
+  }
+
+  .subtitle {
+    font-size: 10px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+
+  .card {
+    min-height: 360px;
+  }
+
+  .card img {
+    max-height: 420px;
+  }
+
+  .card-margin {
+    display: block;
+  }
+
+  .arrow-left {
+    left: 50px;
+  }
+
+  .arrow-right {
+    right: 50px;
+  }
+}
